@@ -1,5 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/D8_KJwUP)
-# DataLabAssignement1
+# Introduction
+The authors of this project include Anna Krysta, Sabina Askerova, and Xichen Zhang.
 
 ## generate.py
 Use the file *generate.py* to complete your ratings table. 

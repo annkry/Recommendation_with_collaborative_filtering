@@ -1,16 +1,18 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/D8_KJwUP)
 # Introduction
 The authors of this project include Anna Krysta, Sabina Askerova, and Xichen Zhang.
 
-## generate.py
-Use the file *generate.py* to complete your ratings table. 
-It takes in argument *--name* the name of the files you want to use and it saves the complete matrix as *output.npy*.
-DO NOT CHANGE THE LINES TO LOAD AND SAVE THE TABLE. Between those to you are free to use any method for matrix completion. 
-Example:
-  > python3 generate.py --name ratings_train.npy
+This project consists of three directories, each containing different techniques to solve the problem of predicting movie ratings when only a sparse ratings table is available:
 
-## requirements.txt
-Among the good pratice of datascience, we encourage you to use conda or virtualenv to create python environment. 
-To test your code on our platform, you are required to update the *requirements.txt*, with the different librairies you might use. 
-When your code will be test, we will execute: 
-  > pip install -r requirements.txt
+- `ALS` : This directory includes two techniques: Alternating Least Squares (ALS) and a method that incorporates user and movie biases that are independent of the user-movie interaction.
+- `Gradient_descent` : This directory includes methods such as Gradient Descent Matrix Factorization, Hybrid Matrix Factorization, Multi-Layer Perceptron Matrix Factorization, and PyTorch Gradient Descent Matrix Factorization.
+- `Net` : This directory includes methods that use Neural Networks to solve the problem.
+
+For each directory, a `README` file is provided to explain the running process. We also provide an analysis of the training data in the `explore_data.ipynb` file.
+
+## References
+
+1. Koren, Yehuda, Robert Bell, and Chris Volinsky. "Matrix Factorization Techniques for Recommender Systems". *Computer*, vol. 42, no. 8, 2009, pp. 30-37. [DOI: 10.1109/MC.2009.263](https://doi.org/10.1109/MC.2009.263)
+
+2. Devlin, Jacob, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding". *arXiv preprint arXiv:1810.04805*, 2018. [Link](https://arxiv.org/abs/1810.04805)
+
+3. He, Xiangnan, Lizi Liao, Hanwang Zhang, Liqiang Nie, Xia Hu, and Tat-Seng Chua. "Neural Collaborative Filtering". *Proceedings of the 26th International Conference on World Wide Web*, 2017, pp. 173-182. [Link](https://arxiv.org/abs/1708.05031)

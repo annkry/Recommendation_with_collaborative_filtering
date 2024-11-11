@@ -12,12 +12,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate a completed ratings table.')
     parser.add_argument("--name", type=str, default="ratings_train.npy",
                       help="Name of the npy of the ratings table to complete")
+    parser.add_argument("--test", type=str, default="ratings_test.npy",
+                      help="Name of the npy of the ratings table to test on")
 
     args = parser.parse_args()
 
     # Open Ratings table
     print('Ratings loading...') 
-    table = np.load(args.name) ## DO NOT CHANGE THIS LINE
+    table = np.load(args.name)
     print('Ratings Loaded.')
 #######################################
 # Configuration
@@ -34,10 +36,11 @@ config = {
         'epochs': 100,
     }
 
-
+test_table = np.load(args.test)
     # Convert to (user, item, rating) triplet format
 train_triplets = matrix_to_triplets(table)
-test_triplets = matrix_to_triplets(table)
+test_triplets = matrix_to_triplets(test_table)
+
 
     # Split validation data from training data (80% train, 20% val)
 split_idx = int(0.8 * len(train_triplets))
@@ -64,11 +67,11 @@ full_matrix = predict_full_matrix(model, config['num_users'], config['num_items'
 print("Completed matrix prediction.")
 
     # Evaluate from the predicted matrix
-rmse, accuracy = evaluate_from_matrix(full_matrix, train_triplets)
+rmse, accuracy = evaluate_from_matrix(full_matrix, test_triplets)
 print(f"Test RMSE: {rmse:.4f}, Test Accuracy: {accuracy:.4f}")
 
 print(accuracy)
 table = full_matrix
 ####################################################
     # Save the completed table 
-np.save("output.npy", table) ## DO NOT CHANGE THIS LINE
+np.save("output.npy", table)
